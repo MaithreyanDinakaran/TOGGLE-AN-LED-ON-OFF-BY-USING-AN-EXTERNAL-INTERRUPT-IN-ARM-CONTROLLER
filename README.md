@@ -28,58 +28,33 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 12.	Connect the stm nucleo board and click on run.
 
 **STM 32 CUBE PROGRAM** : https://www.youtube.com/watch?v=oJc0seuBbzI
-
+```
 #include "main.h" 
 
 #include "stdbool.h"
-
 bool buttonstatus; 
-
-
 void pushbutton();
-
 void SystemClock_Config(void);
-
 static void MX_GPIO_Init(void); 
-
 int main(void)
-
 {
-
 HAL_Init();
-
 SystemClock_Config(); 
-
 MX_GPIO_Init();
-
 while (1)
-
 {
-
 pushbutton();
-
 }
-
 }
-
 void pushbutton()
-
 {
-
 buttonstatus=HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13); 
-
 if(buttonstatus==0)
-
 {
-
 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
 HAL_Delay(200);
-
 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-
 HAL_Delay(200);
-
 }
 
 else
@@ -87,18 +62,20 @@ else
 {
 
 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
 }
-
 }
-
+```
 **OUTPUT:**
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
 
+<img width="692" height="432" alt="506904210-a17f388d-a405-469d-9e7d-851d794f5993" src="https://github.com/user-attachments/assets/3e6f7f87-af2d-46af-8f8c-b950d99efeb9" />
+
+CASE 1: LED ON
+
+<img width="603" height="432" alt="506904504-5ba60f1c-042f-4303-8c0b-89cb3d02f359" src="https://github.com/user-attachments/assets/2ec4d617-f9b0-4c3c-8206-25940fd9b0d3" />
+
+CASE 2:LED OFF
+
+<img width="596" height="416" alt="506904450-7d4d9587-3a41-413f-a5a1-5c49a7154c97" src="https://github.com/user-attachments/assets/b8f149d4-ab57-4b48-8659-00cafcc61081" />
 
 
 **Result :**
